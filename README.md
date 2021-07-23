@@ -15,3 +15,8 @@ Each backup is stored in a dated folder and archived.
 CWD=$(pwd)
 ls $CWD
 ```
+
+## Known issues
+
+- This script requires core gnu executables. On MacOS you can `brew install coreutils`,
+then add `gnubin` to your $PATH. Running the command without this will delete your Backups!
