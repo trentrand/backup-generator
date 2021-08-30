@@ -1,4 +1,7 @@
+pushd ..
 DEST_DIR=$(pwd)/Backup
+popd
+
 BACKUP_NAME=$(date +"%Y-%m-%dT%H:%M:%S")
 
 # Setup dated directory for backup file destination
