@@ -1,21 +1,21 @@
 DEST_DIR=$(pwd)/Backup
-BACKUP_NAME=$(date --iso-8601=date)
+BACKUP_NAME=$(date +"%Y-%m-%dT%H:%M:%S")
 
 # Setup dated directory for backup file destination
-mkdir --parents $DEST_DIR/$BACKUP_NAME/
+mkdir -pv $DEST_DIR/$BACKUP_NAME/
 
 echo "Creating backup of MacOS Keychain..."
 mkdir $DEST_DIR/$BACKUP_NAME/Keychains
 
 mkdir $DEST_DIR/$BACKUP_NAME/Keychains/System
-cp --no-clobber --recursive \
-  --target-directory $DEST_DIR/$BACKUP_NAME/Keychains/System \
-  /Library/Keychains/*
+cp -n -R \
+  /Library/Keychains/* \
+  $DEST_DIR/$BACKUP_NAME/Keychains/System
 
 mkdir $DEST_DIR/$BACKUP_NAME/Keychains/User
-cp --no-clobber --recursive \
-  --target-directory $DEST_DIR/$BACKUP_NAME/Keychains/User \
-  /Users/trand/Library/Keychains/*
+cp -n -R \
+  /Users/trand/Library/Keychains/* \
+  $DEST_DIR/$BACKUP_NAME/Keychains/User
 
 echo "Compressing backup..."
 pushd $DEST_DIR
