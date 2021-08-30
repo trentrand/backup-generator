@@ -14,7 +14,7 @@ cp -n -R \
 
 mkdir $DEST_DIR/$BACKUP_NAME/Keychains/User
 cp -n -R \
-  /Users/trand/Library/Keychains/* \
+  /Users/$(whoami)/Library/Keychains/* \
   $DEST_DIR/$BACKUP_NAME/Keychains/User
 
 echo "Compressing backup..."
